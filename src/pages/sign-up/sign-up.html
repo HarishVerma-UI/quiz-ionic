@@ -1,0 +1,57 @@
+
+<ion-content class="login-content" padding>
+  <div style="border-radius: 13px;" class="login-box">
+      <div>
+      <table style="width:100%">
+        <tr>
+       <td> <button (click)="goToLogin();" ion-button class="submit-btn" full>Login</button></td>
+      <td style="width: 10px;"></td>
+       <td> <button  ion-button class="submit-btn" full>Register</button></td>
+        </tr></table>
+      </div>
+    <form [formGroup]="formGroup" (submit)="signup()">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item>
+              <ion-input placeholder="First name"  formControlName="firstName"  type="text"></ion-input>
+              <div *ngIf="firstName.touched && firstName.invalid">
+                First Name is required
+              </div>
+            </ion-item>
+            <ion-item>
+              <ion-input placeholder="Last name" formControlName="lastName" type="text"></ion-input>
+              <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">
+                Last Name is required
+              </div>
+            </ion-item>
+             <ion-item>
+              <ion-input placeholder="Phone" formControlName="phone" type="text"></ion-input>
+              <div *ngIf="phone.touched && phone.invalid" class="alert alert-danger">
+                Phone is required
+              </div>
+            </ion-item>
+             <ion-item>
+              <ion-input placeholder="Email" formControlName="email" type="email"></ion-input>
+              <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                email is required
+              </div>
+            </ion-item>
+            <ion-item>
+              <ion-input placeholder="Password" formControlName="password" type="password"></ion-input>
+              <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+                Password is required
+              </div>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="signup-col">
+         <button type="submit" ion-button class="login-button" [@fadeIn]="loginState">Submit</button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+</ion-content>
